@@ -1,0 +1,41 @@
+image: Visual Studio 2017
+version: '{build}'
+
+init:
+- git config --global core.autocrlf input
+
+environment:
+  MSYSTEM: MINGW64  # use MSYS2 shell
+  matrix:
+  - CFG: MINGW64
+  - CFG: MSVC
+
+install:
+  # upgrade git for vcpkg: https://github.com/appveyor/ci/issues/2097
+  - if %CFG% == MSVC (choco upgrade git -y & vcpkg install mpir:x64-windows)
+
+matrix:
+  # If at least one job has failed the entire build is marked as failed
+  fast_finish: true
+
+build_script:
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+  - cd %APPVEYOR_BUILD_FOLDER% && mkdir build && cd build
+  # disable slow LTO
+  - if %CFG% == MSVC (cmake ../src
+      -DCMAKE_BUILD_TYPE=Release
+      -DCMAKE_TOOLCHAIN_FILE=c:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake
+      -DLEAN_EXTRA_CXX_FLAGS=/GL-
+      -DLEAN_EXTRA_LINKER_FLAGS_MSVC=/LTCG:OFF
+      -G "NMake Makefiles" &&
+      cmake --build .)
+  - if %CFG% == MINGW64 (C:\msys64\usr\bin\bash -lc "exec 0</dev/null && cd $APPVEYOR_BUILD_FOLDER/build &&
+      OPTIONS='';
+      if [[ $APPVEYOR_SCHEDULED_BUILD == True ]]; then . ../script/setup_nightly.sh; fi &&
+      cmake ../src -DINCLUDE_MSYS2_DLLS=ON -DCMAKE_BUILD_TYPE=Release $OPTIONS -G 'Unix Makefiles' &&
+      cmake --build . &&
+      cpack")
+
+
+# email notifications set at https://ci.appveyor.com/notifications
+  
