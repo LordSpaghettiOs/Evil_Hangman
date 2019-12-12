@@ -6,7 +6,7 @@
 Tested on:
 - Ubuntu 16.04 LTS (Xenial Xerus) with gcc 5.4.0 and cmake 3.12.4
 - Ubuntu 18.04 LTS (Bionic Beaver) with gcc 7.4.0 and cmake 3.12.4
-- testing on windows
+- Windows using MSYS2, gcc 9.1.0 (64-bit), gcc 5.3.0 (32-bit) and clang 9.0.0
 
 Incompatible with:
 - OS X
