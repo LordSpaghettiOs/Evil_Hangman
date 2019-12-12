@@ -1,4 +1,11 @@
 # Evil Hangman
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Travis (.org)](https://travis-ci.org/caminek/Evil_Hangman.svg?branch=master)
+
+Tested on:
+- currently retesting
+
+# About
 
 ### Reflection On The Assignment
 Taken during the Summer Session, Computing II (Data Structures) proved to be one of the most challenging courses I would take.  The semester-long assignment would require us to implement most-everything we had learned in one way or another.  We had to create string and vector libraries, unit tests, self-learn AVL Trees (if we wanted the maximum points available), and implement everything using opaque objects.  Code was to be written on Linux using Vim.  Using GCC as the compiler, the Makefile had to include the complier option -Wall and memory leaks were to be checked using Valgrind.
@@ -60,27 +67,4 @@ There are only two words in the English language that match this pattern: “doa
 	 g. If the player correctly guesses the word, congratulate her.
 
 5. Ask if the user wants to play again and loop accordingly.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
