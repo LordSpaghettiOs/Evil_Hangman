@@ -11,19 +11,11 @@ matrix:
     dist: bionic
     sudo: required
     compiler: gcc
-
-  # OS X  
-  - os: osx
-    sudo: required
-    compiler: clang
+    
 
 script:
   - echo $(pwd)
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-      gcc -v;
-    else
-      clang -v;
-    fi
+  - gcc -v;
   - make;
   # - make unit_test
   # unit_test.c:13:10: error: variable ‘pause’ set but not used [-Werror=unused-but-set-variable]
