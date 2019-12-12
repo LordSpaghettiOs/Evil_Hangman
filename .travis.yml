@@ -27,8 +27,6 @@ script:
     else
       clang -v;
     fi
-  - cmake --version;
-  - cmake -DCMAKE_BUILD_TYPE=Release ..;
   - make;
   - make unit_test
 
