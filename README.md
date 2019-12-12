@@ -1,9 +1,15 @@
 # Evil Hangman
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Travis (.org)](https://travis-ci.org/caminek/Evil_Hangman.svg?branch=master)
+![AppVeyor](https://ci.appveyor.com/api/projects/status/github/caminek/Evil_Hangman?branch=master&svg=true)
 
 Tested on:
-- currently retesting
+- Ubuntu 16.04 LTS (Xenial Xerus) with gcc 5.4.0 and cmake 3.12.4
+- Ubuntu 18.04 LTS (Bionic Beaver) with gcc 7.4.0 and cmake 3.12.4
+- testing on windows
+
+Incompatible with:
+- OS X
 
 # About
 
