@@ -30,11 +30,10 @@ matrix:
   fast_finish: true
 
 build_script:
-  - if [%PLATFORM%]==[mingw32] (
-      SET PATH=%PATH_MINGW32%;%PATH_ORIGINAL%
-    ) else (
-      SET PATH=%PATH_MINGW64%;%PATH_ORIGINAL%
-    )
+  - if [%PLATFORM%]==[mingw32] SET PATH=%PATH_MINGW32%;%PATH_ORIGINAL%
+  - if [%PLATFORM%]==[mingw64] SET PATH=%PATH_MINGW64%;%PATH_ORIGINAL%
+  - if [%PLATFORM%]==[clang] SET PATH=%PATH_MINGW64%;%PATH_ORIGINAL%
+
   - ECHO *** &&
       ECHO Building %COMPILER% %PLATFORM% %CONFIGURATION% &&
       ECHO ***
