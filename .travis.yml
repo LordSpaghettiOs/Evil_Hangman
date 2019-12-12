@@ -18,9 +18,6 @@ matrix:
     compiler: clang
 
 script:
-  # build library and tests, install library
-  - mkdir -v build 
-  - cd build
   - echo $(pwd)
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then
       gcc -v;
